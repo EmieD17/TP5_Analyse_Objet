@@ -27,6 +27,7 @@ public class TestPlayer {
 
         assertEquals("Test2", p.GetName());
     }
+    
 
     @Test
     public void testGetName(){
