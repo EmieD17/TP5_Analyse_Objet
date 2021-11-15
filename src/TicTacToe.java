@@ -10,9 +10,7 @@ public class TicTacToe {
     public TicTacToe(Player p1, Player p2){
         player1 = p1;
         player2 = p2;
-        currentPlayer = player1;
-        board = new Board();
-        board.Display();
+        initialize();
     }
     
     public void initialize(){
@@ -26,7 +24,7 @@ public class TicTacToe {
 
         if(!board.isCaseEmpty(x, y))
         {
-            System.out.println("Hey! Cette case est déjà prise! Choisis s'en une autre! (︶︿︶)");
+            System.out.println("Hey! Cette case est déjà prise! Choisis-en une autre! (︶︿︶)");
         }
         else
         {

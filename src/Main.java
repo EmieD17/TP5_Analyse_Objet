@@ -9,7 +9,6 @@ public class Main {
         boolean playAgain = false;
         String res = "N";
 
-
         System.out.println("Hello! Jouons au TicTacToe! :D \n");
 
         TicTacToe tictactoe = new TicTacToe(new Player('X', "Émie"), new Player('O', "Mathieu"));
@@ -47,12 +46,12 @@ public class Main {
             else
             {
                 playAgain = false;
-                System.out.println(" On ne joue pas encore");
+                System.out.println(" On ne joue pas à nouveau");
             }
             
         }while(playAgain);
         
-        System.out.print("\nAu revoir! ( ´ ▽ ` )ﾉ \n");
+        System.out.print("Au revoir! ( ´ ▽ ` )ﾉ \n\n");
         
         sc.close();
     } 
