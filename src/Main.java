@@ -36,10 +36,7 @@ public class Main {
                 }while(y < 1 || y > 3) ;
 
                 //Play!
-                if(!tictactoe.play(x, y)){
-                    System.out.println("Hey! Cette case est déjà prise! Choisis-en une autre! (︶︿︶)");
-                }
-                else{
+                if(tictactoe.play(x, y)){
                     //board.Display();
                     //display
                     System.out.println("Hello Board!");
@@ -50,6 +47,9 @@ public class Main {
                     System.out.println("|_____|_____|_____|\n|     |     |     |");
                     System.out.println("|  " + tictactoe.getBoardCase(1,3) + "  |  " + tictactoe.getBoardCase(2,3) + "  |  " + tictactoe.getBoardCase(3,3) + "  |");
                     System.out.println("|_____|_____|_____|\n");
+                }
+                else{
+                    System.out.println("Hey! Cette case est déjà prise! Choisis-en une autre! (︶︿︶)");
                 }
             }
 

@@ -22,14 +22,7 @@ public class TicTacToe {
 
     public boolean play(int x, int y){
 
-        if(!board.isCaseEmpty(x, y))
-        {
-            return false;
-        }
-        else
-        {
-            board.SetMove(currentPlayer, x, y);
-            
+        if(board.SetMove(currentPlayer, x, y)){        
             //board.Display();
             
             if(board.GetWinner() != null || board.GetTurns() >= 9)
@@ -40,6 +33,9 @@ public class TicTacToe {
             currentPlayer = currentPlayer == player1? player2: player1;  
 
             return true;
+        }
+        else{
+            return false;
         }         
     }   
 

@@ -17,14 +17,20 @@ public class Board {
     }
 
     //user case numbers 1-3
-    public void SetMove(Player player, int x, int y){
-        board[x-1][y-1] = player.GetSymbol();
-        turns++;
+    public Boolean SetMove(Player player, int x, int y){
+        if(isCaseEmpty(x, y)){
+            board[x-1][y-1] = player.GetSymbol();
+            turns++;
 
-        // vérifier s'il y a un winner
+            // vérifier s'il y a un winner
 
-        if(isThereTTT(player.GetSymbol())){
-            winner = player;
+            if(isThereTTT(player.GetSymbol())){
+                winner = player;
+            }
+            return true;
+        }
+        else{
+            return false;
         }
     }
     //debug purpose
@@ -43,23 +49,23 @@ public class Board {
     }
     */
     private boolean isThereTTT(char symbole){
-        // ligne verticales
+        // lignes verticales
         if(board[0][0] == symbole && board[0][1] == symbole && board[0][2] == symbole) return true;
         if(board[1][0] == symbole && board[1][1] == symbole && board[1][2] == symbole) return true;
         if(board[2][0] == symbole && board[2][1] == symbole && board[2][2] == symbole) return true;
         
-        // ligne horizontales
+        // lignes horizontales
         if(board[0][0] == symbole && board[1][0] == symbole && board[2][0] == symbole) return true;
         if(board[0][1] == symbole && board[1][1] == symbole && board[2][1] == symbole) return true;
         if(board[0][2] == symbole && board[1][2] == symbole && board[2][2] == symbole) return true;
   
-        // ligne diagonales
+        // lignes diagonales
         if(board[0][0] == symbole && board[1][1] == symbole && board[2][2] == symbole) return true;
         if(board[2][0] == symbole && board[1][1] == symbole && board[0][2] == symbole) return true;
         
         return false;
     }
-    public boolean isCaseEmpty(int x, int y){
+    private boolean isCaseEmpty(int x, int y){
         return board[x-1][y-1] == ' ';
     }
     public Player GetWinner(){
