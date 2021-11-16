@@ -16,8 +16,9 @@ public class Board {
         turns = 0;
     }
 
+    //user case numbers 1-3
     public void SetMove(Player player, int x, int y){
-        board[x][y] = player.GetSymbol();
+        board[x-1][y-1] = player.GetSymbol();
         turns++;
 
         // vérifier s'il y a un winner
@@ -26,6 +27,8 @@ public class Board {
             winner = player;
         }
     }
+    //debug purpose
+    /*
     public void Display(){
 
         System.out.println("Hello Board!");
@@ -38,6 +41,7 @@ public class Board {
         System.out.println("|_____|_____|_____|\n");
     
     }
+    */
     private boolean isThereTTT(char symbole){
         // ligne verticales
         if(board[0][0] == symbole && board[0][1] == symbole && board[0][2] == symbole) return true;
@@ -56,12 +60,17 @@ public class Board {
         return false;
     }
     public boolean isCaseEmpty(int x, int y){
-        return board[x][y] == ' ';
+        return board[x-1][y-1] == ' ';
     }
     public Player GetWinner(){
         return winner;
     }
     public int GetTurns(){
         return turns;
+    }
+    
+    // user case number 1-3
+    public char GetCase(int x, int y){
+        return board[x-1][y-1];
     }
 }

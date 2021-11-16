@@ -17,30 +17,29 @@ public class TicTacToe {
         currentPlayer = player1;
         board = new Board();
         isEnded = false;
-        board.Display();
+        //board.Display();
     }
 
-    public void play(int x, int y){
+    public boolean play(int x, int y){
 
         if(!board.isCaseEmpty(x, y))
         {
-            System.out.println("Hey! Cette case est déjà prise! Choisis-en une autre! (︶︿︶)");
+            return false;
         }
         else
         {
             board.SetMove(currentPlayer, x, y);
             
-            board.Display();
-            if(board.GetWinner() != null)
-            {
-                isEnded = true;
-            }
-            else if(board.GetTurns() >= 9)
+            //board.Display();
+            
+            if(board.GetWinner() != null || board.GetTurns() >= 9)
             {
                 isEnded = true;
             }
 
-            currentPlayer = currentPlayer == player1? player2: player1;   
+            currentPlayer = currentPlayer == player1? player2: player1;  
+
+            return true;
         }         
     }   
 
@@ -57,6 +56,11 @@ public class TicTacToe {
 
     public Player getCurrentPlayer(){
         return currentPlayer;
+    }
+
+    // user case number 1-3
+    public char getBoardCase(int x, int y){
+        return board.GetCase(x, y);
     }
 }
 
